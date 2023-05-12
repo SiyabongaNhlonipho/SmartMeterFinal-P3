@@ -27,7 +27,6 @@ function Register() {
        setTimeout(() => {
         navigate("/reset-password");
       }, 3000);
-
  }
 const handleChange = (e) => {
   setValues({ ...values, [e.target.name]: e.target.value });
