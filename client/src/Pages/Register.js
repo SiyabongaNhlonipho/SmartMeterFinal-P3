@@ -25,7 +25,7 @@ function Register() {
  const navigateToReset = (event) => { 
     event.preventDefault()
        setTimeout(() => {
-        navigate("/change-password");
+        navigate("//reset-password");
       }, 3000);
 
  }
