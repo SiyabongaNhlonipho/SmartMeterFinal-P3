@@ -137,13 +137,13 @@ const mailer = (email,otp) =>{
   
   });
 
-  transporter.sendMail(mailOptions, function(error, info)){
-    if(error){
+  transporter.sendMail(mailOptions, (error, info)=>{
+     if(error){
       console.log(error)
     }else{
       console.log('Email sent' + info.response)
     }
-  }
+  })
 
 }
 
