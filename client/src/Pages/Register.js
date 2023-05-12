@@ -22,7 +22,13 @@ function Register() {
   const toggleMember = () => {
   setValues({ ...values, isMember: !values.isMember });
 };
+ const navigateToReset = (event) => { 
+    event.preventDefault()
+       setTimeout(() => {
+        navigate("/change-password");
+      }, 3000);
 
+ }
 const handleChange = (e) => {
   setValues({ ...values, [e.target.name]: e.target.value });
 };
@@ -105,12 +111,16 @@ else if (values.email === "adminsihle@gmail.com" && values.password === "secret"
              {values.isMember ? "Register" : "Login"}
              </button>
         </p>
+        <a onClick={navigateToReset}>Forgot Password ? Click here</a>
       </form>
     </Wrapper>
   );
 }
 export default Register
 
+    setTimeout(() => {
+        navigate("/admin");
+      }, 3000);
 
 
 

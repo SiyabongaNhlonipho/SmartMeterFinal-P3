@@ -104,7 +104,7 @@ const ElectricityMeterContainer =() =>{
      <Wrapper>
           <form >
             <div >
-        <h3>Electricity meterss statistics</h3>
+        <h3>Electricity meter statistics</h3>
             </div>
           
         <div>
