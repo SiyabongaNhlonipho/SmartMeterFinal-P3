@@ -2,10 +2,6 @@ import React from 'react'
 
 const ResetPassword = () => {
 
-  const goBack = (e) => {
-    e.preventDefault();
-       navigate("https://smart-meter-g10-final.onrender.com/login");
-  };
   return (
       <form className="form">
               <h3>To reset password Enter Your :</h3>
@@ -17,7 +13,8 @@ const ResetPassword = () => {
               </div>
               <p>
                 <button type="button" className="member-btn">Send</button>
-                <button type="button" onClick={goBack} className="member-btn">Back</button>
+                
+                 <a href="https://smart-meter-g10-final.onrender.com/login" class="button">Back</a>
               </p>
       </form>
   )
