@@ -77,7 +77,7 @@ const emailSend = async (req, res) => {
     let otpCode = Math.floor((Math.random()*10000)+1)
     let otpData =new otp({
         email:req.body.email,
-        code:otpcode,
+        code:otpCode,
         expireIn: new Date().getTime() + 300*1000
     }) 
     let otpResponse = await otpData.save()
