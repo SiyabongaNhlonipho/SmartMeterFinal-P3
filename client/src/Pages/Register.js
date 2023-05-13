@@ -45,18 +45,6 @@ if (isMember) {
              alertText: "User Created! Redirecting..."});
 }
 
-/*
-useEffect(() => {
-if (values.email === "adminsihle@gmail.com" && values.password === "secret") {
-
-    const timeout = setTimeout(() => {
-      // 👇️ redirects to an external URL
-      window.location.replace('https://smart-meter-g10-final.onrender.com/admin');
-    }, 3000);
-  }
-    return () => clearTimeout(timeout);
-  }, [values.email === "adminsihle@gmail.com" && values.password === "secret", navigate]);*/
-
 };
 useEffect(() => {
       
