@@ -39,26 +39,34 @@ if (isMember) {
   setupUser({currentUser,
              endPoint: 'login',
              alertText: "Login Successful! Redirecting..."});
-} 
-else if (values.email === "adminsihle@gmail.com" && values.password === "secret") {
-useEffect(() => {
-    const timeout = setTimeout(() => {
-      // 👇️ redirects to an external URL
-      window.location.replace('https://smart-meter-g10-final.onrender.com/admin');
-    }, 3000);
-
-    return () => clearTimeout(timeout);
-  }, []);
-
-  
-} else {
+}  else {
   setupUser({currentUser,
              endPoint: 'register',
              alertText: "User Created! Redirecting..."});
 }
 
-};
+/*
+useEffect(() => {
+if (values.email === "adminsihle@gmail.com" && values.password === "secret") {
 
+    const timeout = setTimeout(() => {
+      // 👇️ redirects to an external URL
+      window.location.replace('https://smart-meter-g10-final.onrender.com/admin');
+    }, 3000);
+  }
+    return () => clearTimeout(timeout);
+  }, [values.email === "adminsihle@gmail.com" && values.password === "secret", navigate]);*/
+
+};
+useEffect(() => {
+      
+    if (values.email === "adminsihle@gmail.com" && values.password === "secret") {
+      setTimeout(() => {
+        navigate("/admin");
+      }, 3000);
+    }
+  }, [values.email === "adminsihle@gmail.com" && values.password === "secret", navigate]);
+  
   useEffect(() => {
       
     if (user) {
