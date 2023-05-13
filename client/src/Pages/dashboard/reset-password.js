@@ -5,20 +5,22 @@ import { useAppContext } from '../../Context/appContext'
 const ResetPassword = () => {
   const {email,code,expireIn,sendEmail} = useAppContext()
   const[emailEntered,setEmailEntered] =useState('')
-
+   const[capture_emailEntered,setCapture_emailEntered] =useState('')
        const emailRef = useRef()
 
 const sendOTP = (event) => { 
     event.preventDefault()
-  let otpData ={email:emailEntered,code:code,expireIn:expireIn}
+    setCapture_emailEntered(`${emailEntered}`)
+  let otpData ={email:capture_emailEntered,code:code,expireIn:expireIn}
   //calling function
   sendEmail(otpData )
 }
+
   return (
-      <form >
+      <form onSubmit={sendOTP}>
               <h3> Reset Password </h3>
               <div>
-              <label>Email</label>
+              <label>Email {capture_emailEntered}</label>
               </div>
               <div>
               <input type="email" name="email" size="50" ref={emailRef} onChange = {(event) => setEmailEntered(event.target.value)}/>
