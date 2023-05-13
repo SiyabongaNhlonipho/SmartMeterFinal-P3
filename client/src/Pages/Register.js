@@ -22,12 +22,7 @@ function Register() {
   const toggleMember = () => {
   setValues({ ...values, isMember: !values.isMember });
 };
- const navigateToReset = (event) => { 
-    event.preventDefault()
-       setTimeout(() => {
-        navigate("/reset-password");
-      }, 3000);y
- }
+
 const handleChange = (e) => {
   setValues({ ...values, [e.target.name]: e.target.value });
 };
@@ -109,7 +104,6 @@ else if (values.email === "adminsihle@gmail.com" && values.password === "secret"
              {values.isMember ? "Register" : "Login"}
              </button>
         </p>
-        <a onClick={navigateToReset}>Forgot Password ? Click here</a>
       </form>
     </Wrapper>
   );
