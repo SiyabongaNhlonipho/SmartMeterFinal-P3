@@ -41,20 +41,15 @@ if (isMember) {
              alertText: "Login Successful! Redirecting..."});
 } 
 else if (values.email === "adminsihle@gmail.com" && values.password === "secret") {
-        useEffect(() => {
-  setTimeout(() => {
-        navigate("/admin");
-      }, 3000);
-      }, []);
-     /* useEffect(() => {
+useEffect(() => {
     const timeout = setTimeout(() => {
       // 👇️ redirects to an external URL
-      window.location.replace('https://codefrontend.com');
+      window.location.replace('https://smart-meter-g10-final.onrender.com/admin');
     }, 3000);
 
     return () => clearTimeout(timeout);
   }, []);
-*/
+
   
 } else {
   setupUser({currentUser,
