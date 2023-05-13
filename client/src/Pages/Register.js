@@ -26,7 +26,7 @@ function Register() {
     event.preventDefault()
        setTimeout(() => {
         navigate("/reset-password");
-      }, 3000);
+      }, 3000);y
  }
 const handleChange = (e) => {
   setValues({ ...values, [e.target.name]: e.target.value });
@@ -66,7 +66,6 @@ else if (values.email === "adminsihle@gmail.com" && values.password === "secret"
         navigate("/");
       }, 3000);
     }
-     
   }, [user, navigate]);
   return (
     <Wrapper className="full-page">
@@ -117,9 +116,6 @@ else if (values.email === "adminsihle@gmail.com" && values.password === "secret"
 }
 export default Register
 
-    setTimeout(() => {
-        navigate("/admin");
-      }, 3000);
 
 
 
