@@ -5,7 +5,7 @@ const ResetPassword = () => {
        const emailRef = useRef()
        const sendOTP = async() => {
           try {
-            let url = 'https://smart-meter-g10-final.onrender.com/email-send'
+            let url = 'http://localhost:5000/api/v1/auth/email-send'
             let options = {
               method:'POST',
               url:url,
