@@ -103,7 +103,9 @@ else if (values.email === "adminsihle@gmail.com" && values.password === "secret"
             <button type="button" onClick={toggleMember} className="member-btn">
              {values.isMember ? "Register" : "Login"}
              </button>
+             <div>
              <a href="https://smart-meter-g10-final.onrender.com/reset-password" > Forgot password? click here</a>
+             </div>
         </p>
       </form>
     </Wrapper>
