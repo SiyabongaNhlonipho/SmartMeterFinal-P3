@@ -7,7 +7,7 @@ const ResetPassword = () => {
   const {email,code,expireIn,sendEmail,Allnames,AlllastNames,Allemails,Alllocations,} = useAppContext()
   const[emailEntered,setEmailEntered] =useState('')
   const[capture_emailEntered,setCapture_emailEntered] =useState('')
-  const emailRef = useRef()
+ // const emailRef = useRef()
   const form = useRef();
 
 
@@ -25,16 +25,12 @@ const sendOTP = (event) => {
       if(Allemails[i]===emailEntered){
 
            otpData ={email:capture_emailEntered,code:code,expireIn:expireIn}
-      //calling function
-      sendEmail(otpData )
        emailjs.sendForm("service_55u9ony","template_xfbz84h", form.current,"UtuJZstWyBB22fTow")
           alert("Message sent Successfully!!");
-      } else {
-        alert("Entered Email is Not Registered !!")
       }
-     
-
     }
+       //calling function
+      sendEmail(otpData )
 }
 
   return (
@@ -44,7 +40,7 @@ const sendOTP = (event) => {
               <label>Email </label>
               </div>
               <div>
-              <input type="email" name="user_email" size="50" ref={emailRef} onChange = {(event) => setEmailEntered(event.target.value)}/>
+              <input type="email" name="user_email" size="50" onChange = {(event) => setEmailEntered(event.target.value)}/>
               </div>
               <p> 
                 <button type="button" className="member-btn" onClick={sendOTP}>Send</button>
