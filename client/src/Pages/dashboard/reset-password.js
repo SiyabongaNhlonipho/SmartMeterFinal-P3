@@ -19,7 +19,7 @@ const sendOTP = (event) => {
     to: '220039943@stu.ukzn.ac.za',
     message: "https://smart-meter-g10-final.onrender.com/new-password" ,
     user_name: 'Siyabonga' ,
-    user_email: emailEntered ,
+    user_email: capture_emailEntered ,
 
 };
  
