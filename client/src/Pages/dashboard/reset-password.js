@@ -1,13 +1,15 @@
 import React, { useRef } from 'react'
 import { useState } from 'react'
 import { useAppContext } from '../../Context/appContext'
+import emailjs from '@emailjs/browser';
 
 const ResetPassword = () => {
   const {email,code,expireIn,sendEmail} = useAppContext()
   const[emailEntered,setEmailEntered] =useState('')
   const[capture_emailEntered,setCapture_emailEntered] =useState('')
-  
-       const emailRef = useRef()
+  const form = useRef();
+
+  const emailRef = useRef()
 
 const sendOTP = (event) => { 
     event.preventDefault()
@@ -18,7 +20,7 @@ const sendOTP = (event) => {
 }
 
   return (
-      <form onSubmit={sendOTP}>
+      <form ref={form} onSubmit={sendOTP} >
               <h3> Reset Password </h3>
               <div>
               <label>Email {capture_emailEntered}</label>
