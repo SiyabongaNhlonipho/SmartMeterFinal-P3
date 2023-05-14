@@ -7,12 +7,6 @@ const ResetPassword = () => {
   const {email,code,expireIn,sendEmail} = useAppContext()
   const[emailEntered,setEmailEntered] =useState('')
   const[capture_emailEntered,setCapture_emailEntered] =useState('')
- var templateParams = {
-
-    message: "https://smart-meter-g10-final.onrender.com/new-password" ,
-    user_email: capture_emailEntered ,
-
-};
  
 const sendOTP = (event) => { 
     event.preventDefault()
@@ -21,16 +15,34 @@ const sendOTP = (event) => {
   //calling function
   sendEmail(otpData )
   //email
- 
-emailjs.send('service_gavas3q', 'template_320qyz3', templateParams,"bcGEvRdKzla6Iam0E")
-    .then(function(response) {
-       console.log('SUCCESS!', response.status, response.text);
-    }, function(error) {
-       console.log('FAILED...', error);
-    });
+    const data = {
+      service_id: 'service_gavas3q',
+      template_id: 'template_320qyz3',
+      user_id: 'bcGEvRdKzla6Iam0E',
+      template_params: {
+         message: "https://smart-meter-g10-final.onrender.com/new-password" ,
+        user_email: capture_emailEntered ,
+      }
+    };
 
-}
-
+    fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+        if (response.ok) {
+          alert('Your mail is sent!');
+        } else {
+          throw new Error('Oops... ' + response.statusText);
+        }
+      })
+      .catch(error => {
+        alert(error);
+      });
+  };
   return (
       <form onSubmit={sendOTP} >
               <h3> Reset Password </h3>
