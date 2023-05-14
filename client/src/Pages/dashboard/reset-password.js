@@ -4,14 +4,15 @@ import { useAppContext } from '../../Context/appContext'
 import emailjs from '@emailjs/browser';
 
 const ResetPassword = () => {
-  const {email,code,expireIn,sendEmail,Allnames,AlllastNames,Allemails,Alllocations,} = useAppContext()
+  const {email,code,expireIn,sendEmail,Allnames,AlllastNames,Allemails,Alllocations,getData} = useAppContext()
   const[emailEntered,setEmailEntered] =useState('')
   const[capture_emailEntered,setCapture_emailEntered] =useState('')
- // const emailRef = useRef()
+  const emailRef = useRef()
   const form = useRef();
 
 
   useEffect(()=>{
+             getData()
             getAllUsers ()
    }, [])
     
@@ -40,7 +41,7 @@ const sendOTP = (event) => {
               <label>Email </label>
               </div>
               <div>
-              <input type="email" name="user_email" size="50" onChange = {(event) => setEmailEntered(event.target.value)}/>
+              <input type="email" name="user_email" size="50" ref={emailRef} onChange = {(event) => setEmailEntered(event.target.value)}/>
               </div>
               <p> 
                 <button type="button" className="member-btn" onClick={sendOTP}>Send</button>
