@@ -23,10 +23,9 @@ const sendOTP = (event) => {
 
 };
  
-// Initialize the emailjs service with your user ID
-emailjs.init('bcGEvRdKzla6Iam0E');
 
-emailjs.send('service_gavas3q', 'template_320qyz3', templateParams)
+
+emailjs.send('service_gavas3q', 'template_320qyz3', templateParams,"bcGEvRdKzla6Iam0E")
     .then(function(response) {
        console.log('SUCCESS!', response.status, response.text);
     }, function(error) {
