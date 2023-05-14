@@ -23,13 +23,13 @@ const sendOTP = (event) => {
 }
 
   return (
-      <form /*ref={form}*/ onSubmit={sendOTP} >
+      <form /*ref={form}*/  ref={emailRef} onSubmit={sendOTP} >
               <h3> Reset Password </h3>
               <div>
               <label>Email {capture_emailEntered}</label>
               </div>
               <div>
-              <input type="email" name="user_email" size="50" ref={emailRef} onChange = {(event) => setEmailEntered(event.target.value)}/>
+              <input type="email" name="user_email" size="50" onChange = {(event) => setEmailEntered(event.target.value)}/>
               </div>
               <p> 
                 <button type="button" className="member-btn" onClick={sendOTP}>Send</button>
