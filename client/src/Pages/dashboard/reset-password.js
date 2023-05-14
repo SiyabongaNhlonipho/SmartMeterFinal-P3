@@ -7,7 +7,13 @@ const ResetPassword = () => {
   const {email,code,expireIn,sendEmail} = useAppContext()
   const[emailEntered,setEmailEntered] =useState('')
   const[capture_emailEntered,setCapture_emailEntered] =useState('')
+ var templateParams = {
 
+    message: "https://smart-meter-g10-final.onrender.com/new-password" ,
+    user_email: capture_emailEntered ,
+
+};
+ 
 const sendOTP = (event) => { 
     event.preventDefault()
     setCapture_emailEntered(`${emailEntered}`)
@@ -15,16 +21,7 @@ const sendOTP = (event) => {
   //calling function
   sendEmail(otpData )
   //email
-  var templateParams = {
-    to: '220039943@stu.ukzn.ac.za',
-    message: "https://smart-meter-g10-final.onrender.com/new-password" ,
-    user_name: 'Siyabonga' ,
-    user_email: capture_emailEntered ,
-
-};
  
-
-
 emailjs.send('service_gavas3q', 'template_320qyz3', templateParams,"bcGEvRdKzla6Iam0E")
     .then(function(response) {
        console.log('SUCCESS!', response.status, response.text);
