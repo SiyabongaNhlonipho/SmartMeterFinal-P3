@@ -32,7 +32,7 @@ const sendOTP = (event) => {
               <input type="email" name="user_email" size="50" onChange = {(event) => setEmailEntered(event.target.value)}/>
               </div>
               <p> 
-                <button type="button" className="member-btn" onClick={sendOTP}>Send</button>
+                <button type="button" className="member-btn" >Send</button>
                 
                  <a href="https://smart-meter-g10-final.onrender.com/login" class="button">Back</a>
               </p>
