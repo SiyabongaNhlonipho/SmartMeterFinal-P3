@@ -39,29 +39,29 @@ const sendOTP = (event) => {
               </p>
       </form>
   )*/
-const form = useRef();
+const formm = useRef();
 
   const sendEmaill = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm("service_55u9ony","template_xfbz84h", form.current,"UtuJZstWyBB22fTow")
+    emailjs.sendForm("service_5zb0tln","template_xfbz84h", formm.current,"UtuJZstWyBB22fTow")
     alert("Message sent Successfully!!");
   };
     return ( <Wrapper>
                     
-<form className="form" ref={form} onSubmit={sendEmaill}>
+<form className="form" ref={formm} onSubmit={sendEmaill}>
         <div>
         <label>Name</label>
         </div><div>
-      <input type="text" name="user_name" size="50" />
+      <input type="text" name="user_namee" size="50" />
       </div><div>
       <label>Email</label>
       </div><div>
-      <input type="email" name="user_email" size="50"/>
+      <input type="email" name="user_emaill" size="50"/>
       </div><div>
       <label>Message</label>
       </div><div>
-      <textarea name="message" rows="5" cols="40"/>
+      <textarea name="messagee" rows="5" cols="40"/>
       </div><div>
       <input type="submit" value="Send" size="20" className="btn btn-block" />
       </div>
