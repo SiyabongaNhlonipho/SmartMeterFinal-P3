@@ -4,6 +4,7 @@ import { useAppContext } from '../../Context/appContext'
 import emailjs from '@emailjs/browser';
 
 const ResetPassword = () => {
+  /* 
   const {email,code,expireIn,sendEmail} = useAppContext()
   const[emailEntered,setEmailEntered] =useState('')
   const[capture_emailEntered,setCapture_emailEntered] =useState('')
@@ -22,7 +23,7 @@ const sendOTP = (event) => {
 }
 
   return (
-      <form ref={form} onSubmit={sendOTP} >
+     <form ref={form} onSubmit={sendOTP} >
               <h3> Reset Password </h3>
               <div>
               <label>Email {capture_emailEntered}</label>
@@ -35,11 +36,32 @@ const sendOTP = (event) => {
                 
                  <a href="https://smart-meter-g10-final.onrender.com/login" class="button">Back</a>
               </p>
-              <div>
-              <input type="submit" value="Send" size="20" className="btn btn-block" />
-              </div>
       </form>
-  )
+  )*/
+const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm("service_55u9ony","template_xfbz84h", form.current,"UtuJZstWyBB22fTow")
+    alert("Message sent Successfully!!");
+  };
+    return ( <Wrapper>
+                    
+<form className="form" ref={form} onSubmit={sendEmail}>
+      <div>
+      <label>Email</label>
+      </div><div>
+      <input type="email" name="user_email" size="50"/>
+      </div><div>
+      <input type="submit" value="Send" size="20" className="btn btn-block" />
+      </div>
+         
+      </form>
+    </Wrapper>
+    
+    )
+  
 }
 
 export default ResetPassword

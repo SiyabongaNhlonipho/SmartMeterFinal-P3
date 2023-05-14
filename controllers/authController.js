@@ -38,11 +38,11 @@ const login = async (req, res) => {
   }
   const user = await User.findOne({ email }).select("+password");
 
-  if (!user || !(values.email === "adminsihle@gmail.com")) {
+  if (!user ) {
     throw new UnauthenticatedError("Invalid Credentials");
   }
   const isPasswordCorrect = await user.comparePassword(password);
-  if (!isPasswordCorrect||!(values.password === "secret")) {
+  if (!isPasswordCorrect) {
     throw new UnauthenticatedError("Invalid Credentials");
   }
   const token = user.createJWT();
