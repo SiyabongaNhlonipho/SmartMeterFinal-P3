@@ -17,8 +17,13 @@ const sendOTP = (event) => {
   sendEmail(otpData )
   //email
 
-    emailjs.sendForm('service_gavas3q','template_320qyz3', form.current, "bcGEvRdKzla6Iam0E");
-
+    emailjs.sendForm('service_gavas3q','template_320qyz3', form.current, "bcGEvRdKzla6Iam0E")
+    .then((res) => {
+        console.log('Email successfully sent!');
+      })
+      .catch((err) => {
+        console.error('Error sending email:', err);
+      });
   };
   return (
       <form className="form"  ref={form} onSubmit={sendOTP} >
