@@ -47,7 +47,8 @@ const form = useRef();
     emailjs.sendForm("service_55u9ony","template_xfbz84h", form.current,"UtuJZstWyBB22fTow")
     alert("Message sent Successfully!!");
   };
-    return ( <Wrapper>
+    return ( 
+    <Wrapper>
                     
 <form className="form" ref={form} onSubmit={sendEmail}>
       <div>
