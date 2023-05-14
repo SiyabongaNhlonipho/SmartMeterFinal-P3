@@ -15,12 +15,8 @@ const sendOTP = (event) => {
   //calling function
   sendEmail(otpData )
   //email
-    const  templateParams = {
-         message: "https://smart-meter-g10-final.onrender.com/new-password" ,
-        user_email: capture_emailEntered ,
-      }
 
-    emailjs.sendForm('service_gavas3q','template_320qyz3', templateParams, "bcGEvRdKzla6Iam0E");
+    emailjs.sendForm('service_gavas3q','template_320qyz3', form.current, "bcGEvRdKzla6Iam0E");
 
   };
   return (
@@ -30,7 +26,7 @@ const sendOTP = (event) => {
               <label>Email {capture_emailEntered}</label>
               </div>
               <div>
-              <input type="email" name="email" size="50" onChange = {(event) => setEmailEntered(event.target.value)}/>
+              <input type="email" name="user_email" size="50" ref={form} onChange = {(event) => setEmailEntered(event.target.value)}/>
               </div>
               <p> 
                 <button type="button" className="member-btn" onClick={sendOTP}>Send</button>
