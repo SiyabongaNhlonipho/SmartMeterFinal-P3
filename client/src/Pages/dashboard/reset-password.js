@@ -1,14 +1,11 @@
 import React, { useRef } from 'react'
 import { useState } from 'react'
 import { useAppContext } from '../../Context/appContext'
-import emailjs from '@emailjs/browser';
 
 const ResetPassword = () => {
   const {email,code,expireIn,sendEmail} = useAppContext()
   const[emailEntered,setEmailEntered] =useState('')
   const[capture_emailEntered,setCapture_emailEntered] =useState('')
-
-  const emailRef = useRef()
 
 const sendOTP = (event) => { 
     event.preventDefault()
@@ -20,22 +17,19 @@ const sendOTP = (event) => {
 }
 
   return (
-      <form ref={form} onSubmit={sendOTP} >
+      <form onSubmit={sendOTP} >
               <h3> Reset Password </h3>
               <div>
               <label>Email {capture_emailEntered}</label>
               </div>
               <div>
-              <input type="email" name="email" size="50" ref={emailRef} onChange = {(event) => setEmailEntered(event.target.value)}/>
+              <input type="email" name="email" size="50" onChange = {(event) => setEmailEntered(event.target.value)}/>
               </div>
               <p> 
                 <button type="button" className="member-btn" onClick={sendOTP}>Send</button>
                 
                  <a href="https://smart-meter-g10-final.onrender.com/login" class="button">Back</a>
               </p>
-              <div>
-              <input type="submit" value="Send" size="20" className="btn btn-block" />
-              </div>
       </form>
   )
 }

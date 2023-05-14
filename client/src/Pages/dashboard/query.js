@@ -9,7 +9,7 @@ const Query = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm("service_55u9ony","template_1u5xrb9", form.current,"UtuJZstWyBB22fTow")
+    emailjs.sendForm("service_gavas3q","template_2jx5wps", form.current,"bcGEvRdKzla6Iam0E")
     alert("Message sent Successfully!!");
   };
     return ( <Wrapper>
