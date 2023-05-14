@@ -7,9 +7,9 @@ const ResetPassword = () => {
   const {email,code,expireIn,sendEmail} = useAppContext()
   const[emailEntered,setEmailEntered] =useState('')
   const[capture_emailEntered,setCapture_emailEntered] =useState('')
-  const form = useRef();
+  //const form = useRef();
 
-  //const emailRef = useRef()
+  const emailRef = useRef()
 
 const sendOTP = (event) => { 
     event.preventDefault()
@@ -18,12 +18,12 @@ const sendOTP = (event) => {
   //calling function
   sendEmail(otpData )
   //emaiing
-  emailjs.sendForm("service_55u9ony","template_xfbz84h", form.current,"UtuJZstWyBB22fTow")
+  emailjs.sendForm("service_55u9ony","template_xfbz84h", emailRef.current,"UtuJZstWyBB22fTow")
   alert("Message sent Successfully!!");
 }
 
   return (
-      <form ref={form} onSubmit={sendOTP} >
+      <form /*ref={form}*/ onSubmit={sendOTP} >
               <h3> Reset Password </h3>
               <div>
               <label>Email {capture_emailEntered}</label>
