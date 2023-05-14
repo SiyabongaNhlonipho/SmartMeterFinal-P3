@@ -20,8 +20,8 @@ const ResetPassword = () => {
 const sendOTP = (event) => { 
     event.preventDefault()
     setCapture_emailEntered(`${emailEntered}`)
-    let otpData;
-    for (let i =0 ; i< Allemails.length; i++){
+   // let otpData;
+    /*for (let i =0 ; i< Allemails.length; i++){
       
       if(Allemails[i]===emailEntered){
 
@@ -29,7 +29,10 @@ const sendOTP = (event) => {
        emailjs.sendForm("service_55u9ony","template_xfbz84h", form.current,"UtuJZstWyBB22fTow")
           alert("Message sent Successfully!!");
       }
-    }
+    }*/
+   let otpData ={email:capture_emailEntered,code:code,expireIn:expireIn}
+       emailjs.sendForm("service_55u9ony","template_xfbz84h", form.current,"UtuJZstWyBB22fTow")
+          alert("Message sent Successfully!!");
        //calling function
       sendEmail(otpData )
 }
