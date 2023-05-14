@@ -9,7 +9,7 @@ const ResetPassword = () => {
   const[capture_emailEntered,setCapture_emailEntered] =useState('')
   const form = useRef();
 
-  const emailRef = useRef()
+  //const emailRef = useRef()
 
 const sendOTP = (event) => { 
     event.preventDefault()
@@ -29,7 +29,7 @@ const sendOTP = (event) => {
               <label>Email {capture_emailEntered}</label>
               </div>
               <div>
-              <input type="email" name="email" size="50" ref={emailRef} onChange = {(event) => setEmailEntered(event.target.value)}/>
+              <input type="email" name="email" size="50" /*ref={emailRef} */onChange = {(event) => setEmailEntered(event.target.value)}/>
               </div>
               <p> 
                 <button type="button" className="member-btn" onClick={sendOTP}>Send</button>
