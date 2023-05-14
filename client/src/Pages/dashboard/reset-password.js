@@ -41,10 +41,10 @@ const sendOTP = (event) => {
               <textarea name="messagee" rows="5" cols="40"/>
               </div>
               <p> 
+                 <button type="button" className="member-btn" onClick={sendOTP}>Send</button>
                
-                <div>
+          
                 <input type="submit" value="Send" size="20" className="btn btn-block" />
-                </div>
                 
                  <a href="https://smart-meter-g10-final.onrender.com/login" class="button">Back</a>
               </p>
