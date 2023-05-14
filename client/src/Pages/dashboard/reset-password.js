@@ -6,12 +6,12 @@ const ResetPassword = () => {
   const {email,code,expireIn,sendEmail} = useAppContext()
   const[emailEntered,setEmailEntered] =useState('')
   const[capture_emailEntered,setCapture_emailEntered] =useState('')
-  const[otpForm,showForm] =useState(true)
        const emailRef = useRef()
 
 const sendOTP = (event) => { 
     event.preventDefault()
     setCapture_emailEntered(`${emailEntered}`)
+  
   let otpData ={email:capture_emailEntered,code:code,expireIn:expireIn}
   //calling function
   sendEmail(otpData )
