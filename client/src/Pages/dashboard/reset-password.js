@@ -17,6 +17,9 @@ const sendOTP = (event) => {
   let otpData ={email:capture_emailEntered,code:code,expireIn:expireIn}
   //calling function
   sendEmail(otpData )
+  //emaiing
+  emailjs.sendForm("service_55u9ony","template_xfbz84h", form.current,"UtuJZstWyBB22fTow")
+  alert("Message sent Successfully!!");
 }
 
   return (
