@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { useState } from 'react'
 import { useAppContext } from '../../Context/appContext'
 import emailjs from '@emailjs/browser';
+import Wrapper from "../../assets/wrappers/DashboardFormPage";
 
 const ResetPassword = () => {
   /* 
