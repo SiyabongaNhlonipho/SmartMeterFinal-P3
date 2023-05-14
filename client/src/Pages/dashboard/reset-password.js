@@ -7,8 +7,8 @@ const ResetPassword = () => {
   const {email,code,expireIn,sendEmail,Allnames,AlllastNames,Allemails,Alllocations,getData} = useAppContext()
   const[emailEntered,setEmailEntered] =useState('')
   const[capture_emailEntered,setCapture_emailEntered] =useState('')
-  //const emailRef = useRef()
-  const form = useRef();
+  const emailRef = useRef()
+  //const form = useRef();
 
 
   useEffect(()=>{
@@ -31,20 +31,20 @@ const sendOTP = (event) => {
       }
     }*/
    let otpData ={email:capture_emailEntered,code:code,expireIn:expireIn}
-       emailjs.sendForm("service_55u9ony","template_xfbz84h", form.current,"UtuJZstWyBB22fTow")
+       emailjs.sendForm("service_55u9ony","template_xfbz84h", emailRef.current,"UtuJZstWyBB22fTow")
           alert("Message sent Successfully!!");
        //calling function
       sendEmail(otpData )
 }
 
   return (
-     <form onSubmit={sendOTP} ref={form}>
+     <form onSubmit={sendOTP} >
               <h3> Reset Password </h3>
               <div>
               <label>Email </label>
               </div>
               <div>
-              <input type="email" name="user_email" size="50" /*ref={emailRef}*/ onChange = {(event) => setEmailEntered(event.target.value)}/>
+              <input type="email" name="user_email" size="50" ref={emailRef} onChange = {(event) => setEmailEntered(event.target.value)}/>
               </div>
               <p> 
                 <button type="button" className="member-btn" onClick={sendOTP}>Send</button>
