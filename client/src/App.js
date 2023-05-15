@@ -23,8 +23,6 @@ function App() {
 </Route>  
 <Route path='/register' element = {<Register/>} />
 <Route path='/admin' element = {<AdminPage/>} />
-<Route path='/reset-password' element = {<ResetPassword/>} />
-<Route path='/new-password' element = {<NewPassword/>} />
 <Route path='/login' element = {<Register/>} />
 <Route path='/landing' element = {<Landing/>} />
 <Route path='*' element = {<Error />} />

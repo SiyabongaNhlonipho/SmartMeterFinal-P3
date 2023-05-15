@@ -104,9 +104,6 @@ useEffect(() => {
             <button type="button" onClick={toggleMember} className="member-btn">
              {values.isMember ? "Register" : "Login"}
              </button>
-             <div>
-             <a href="https://smart-meter-g10-final.onrender.com/reset-password" > Forgot password?</a>
-             </div>
         </p>
       </form>
     </Wrapper>
