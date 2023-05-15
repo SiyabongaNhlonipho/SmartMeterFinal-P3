@@ -1,71 +1,73 @@
-import React from 'react'
-import { useState } from 'react'
-import { useAppContext } from '../../Context/appContext'
-import nodemailer from 'nodemailer'
-
-
-
+import React, { useState } from 'react';
+import { useAppContext } from '../../Context/appContext';
+import nodemailer from 'nodemailer';
 
 const ResetPassword = () => {
-  
- 
-const sendEmailTwo = async (event) => { 
+   const { email, code, expireIn, sendEmail } = useAppContext();
+  const [emailEntered, setEmailEntered] = useState('');
 
-    const {email,code,expireIn,sendEmail} = useAppContext()
-    const[emailEntered,setEmailEntered] =useState('')
-    const[capture_emailEntered,setCapture_emailEntered] =useState('')
+  const sendOTP = async (event) => {
+    event.preventDefault();
+    const capture_emailEntered = emailEntered;
+    const otpData = { email: capture_emailEntered, code, expireIn };
 
-    event.preventDefault()
-    setCapture_emailEntered(`${emailEntered}`)
-    let otpData ={email:capture_emailEntered,code:code,expireIn:expireIn}
-    //calling function
-    sendEmail(otpData )
+    // Call the mailer function here
+   
+const mailer = (email,otp) =>{
 
-    // Create a Nodemailer transporter
-    let transporter = nodemailer.createTransport({
-    // Specify your email service provider
-    service: 'Gmail',
+  // creating reusable transporter object using the default SMTP transport
+  let transporter = nodemailer.createTransport({
+    service:"gmail",
+    port: 587,
+    secure: false, // true for 465, false for other ports
     auth: {
-      user: 'siyabongawarrior@example.com', // Replace with your email address
-      pass: 'Nipho3006$', // Replace with your email password
+      user: 'siyabongawarrior@example.com', // generated ethereal user
+      pass: 'Nipho3006$', // generated ethereal password
     },
-     });
+  });
 
-  // Set up email data
-  let mailOptions = {
-    from: 'siyabongawarrior@example.com',
-    to: '220039943@stu.ukzn.ac.za',
-    subject: 'Reset Password',
-    text: 'Click This Link to Reset Your Password : https://smart-meter-g10-final.onrender.com/new-password',
+  // send mail with defined transport object
+  var mailOptions = ({
+    from: 'siyabongawarrior@example.com', 
+    to: email, 
+    subject: "Reset Password", 
+    text: "Here is your otp code "+otp+"click this link to reset your password https://smart-meter-g10-final.onrender.com/new-password", 
+  
+  });
+
+  transporter.sendMail(mailOptions, (error, info)=>{
+     if(error){
+      console.log(error)
+    }else{
+      console.log('Email sent' + info.response)
+    }
+  })
+
+}
+    mailer(capture_emailEntered, code);
+    sendEmail(otpData)
+    
   };
 
-  // Send the email
-  try {
-    let info = await transporter.sendMail(mailOptions);
-    console.log('Email sent: ' + info.response);
-  } catch (error) {
-    console.log('Error sending email: ' + error);
-  }
-
-}
-
   return (
-      <form >
-              <h3> Reset Password </h3>
-              <div>
-              <label>Email {capture_emailEntered}</label>
-              </div>
-              <div>
-              <input type="email" name="email" size="50" onChange = {(event) => setEmailEntered(event.target.value)}/>
-              </div>
-              <p> 
-                <button type="button" className="member-btn" onClick={sendEmailTwo}>Send</button>
-                
-                 <a href="https://smart-meter-g10-final.onrender.com/login" class="button">Back</a>
-              </p>
-      </form>
-  )
- 
-}
+    <form onSubmit={sendOTP}>
+      <h3>Reset Password</h3>
+      <div>
+        <label>Email {emailEntered}</label>
+      </div>
+      <div>
+        <input type="email" name="email" size="50" onChange={(event) => setEmailEntered(event.target.value)} />
+      </div>
+      <p>
+        <button type="submit" className="member-btn">Send</button>
+        <a href="https://smart-meter-g10-final.onrender.com/login" className="button">Back</a>
+      </p>
+    </form>
+  );
+};
 
-export default ResetPassword
+export default ResetPassword;
+
+
+
+

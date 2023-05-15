@@ -115,36 +115,5 @@ const changePassword = async (req, res) => {
   }
 };
 
-const mailer = (email,otp) =>{
-
-  // creating reusable transporter object using the default SMTP transport
-  let transporter = nodemailer.createTransport({
-    service:"gmail",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: 'code@example.com', // generated ethereal user
-      pass: '9898998', // generated ethereal password
-    },
-  });
-
-  // send mail with defined transport object
-  var mailOptions = ({
-    from: 'code@example.com', 
-    to: "peter@example.com", 
-    subject: "Reset Password", 
-    text: "Thank you sir", 
-  
-  });
-
-  transporter.sendMail(mailOptions, (error, info)=>{
-     if(error){
-      console.log(error)
-    }else{
-      console.log('Email sent' + info.response)
-    }
-  })
-
-}
 
 export { register , login , updateUser,emailSend,changePassword}
