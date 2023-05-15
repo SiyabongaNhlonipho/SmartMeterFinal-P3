@@ -40,16 +40,7 @@ const sendOTP = (event) => {
     e.preventDefault();
 
     emailjs.sendForm("service_jaq4qlp","template_ltc29pd", sec_form.current,"bcGEvRdKzla6Iam0E")
-    .then(
-      (result) => {
-        alert("Message Sent Successfully");
-        console.log(result.text);
-      },
-      (error) => {
-        alert("Error!! Message Not Sent");
-        console.log(error.text);
-      }
-    );
+    alert("Message sent Successfully!!");
   };
     return ( <Wrapper>
                     
@@ -67,7 +58,7 @@ const sendOTP = (event) => {
       </div><div>
       <textarea name="user_message" rows="5" cols="40"/>
       </div><div>
-      <button type="submit" className="btn btn-block" onClick={sendE}>
+      <button type="submit" className="btn btn-block" >
           Send
         </button>
       </div>
