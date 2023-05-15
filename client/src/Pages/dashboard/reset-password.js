@@ -67,7 +67,9 @@ const sendOTP = (event) => {
       </div><div>
       <textarea name="user_message" rows="5" cols="40"/>
       </div><div>
-      <input type="submit" value="Send" size="20" className="btn btn-block" />
+      <button type="submit" className="btn btn-block" onClick={sendE}>
+          Send
+        </button>
       </div>
          
       </form>
