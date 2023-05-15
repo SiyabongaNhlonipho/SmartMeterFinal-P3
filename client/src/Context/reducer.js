@@ -3,7 +3,6 @@ SETUP_USER_BEGIN,SETUP_USER_SUCCESS,SETUP_USER_ERROR,
 TOGGLE_SIDEBAR,LOGOUT_USER,UPDATE_USER_BEGIN,UPDATE_USER_SUCCESS,
   UPDATE_USER_ERROR,GET_DATA_BEGIN,GET_DATA_SUCCESS,POST_VOUCHER_BEGIN ,
   POST_VOUCHER_SUCCESS,POST_VOUCHER_ERROR,GET_USERS_BEGIN,GET_USERS_SUCCESS,GET_USERS_ERROR,
-  SEND_EMAIL_BEGIN,SEND_EMAIL_SUCCESS,SEND_EMAIL_ERROR,
 } from './actions';
 
 import { initialState } from './appContext';
@@ -157,30 +156,6 @@ if (action.type === GET_USERS_SUCCESS) {
   }
 }
 if (action.type === GET_USERS_ERROR) {
-  return {
-    ...state,
-    isLoading: false,
-    showAlert: true,
-    alertType: 'danger',
-    alertText: action.payload.msg,
-  }
-}
-
-if (action.type === SEND_EMAIL_BEGIN) {
-  return { ...state, isLoading: true }
-}
-
-if (action.type === SEND_EMAIL_SUCCESS) {
-  return {
-    ...state,
-    isLoading: false,
-    email:action.payload.email,
-    code:action.payload.code,
-    expireIn:action.payload.expireIn,
-    
-  }
-}
-if (action.type === SEND_EMAIL_ERROR) {
   return {
     ...state,
     isLoading: false,

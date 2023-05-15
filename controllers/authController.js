@@ -1,8 +1,6 @@
 import User from "../Models/User.js"
 import { StatusCodes } from "http-status-codes"
 import {BadRequestError,UnauthenticatedError} from '../errors/index.js'
-import otp from "../Models/otp.js"
-import nodemailer from "nodemailer"
  const register = async ( req, res) => {
     const { name, email , password} =req.body
 
@@ -70,50 +68,4 @@ const login = async (req, res) => {
     res.status(StatusCodes.OK).json({ user, token, location: user.location });
 }
 
-const emailSend = async (req, res) => {
-  let data = await User.findOne({email:req.body.email})
-  const responseType = {};
-  if(data){
-    let otpCode = Math.floor((Math.random()*10000)+1)
-    let otpData =new otp({
-        email:req.body.email,
-        code:otpCode,
-        expireIn: new Date().getTime() + 300*1000
-    }) 
-    let otpResponse = await otpData.save()
-    responseType.statusText = 'Success'
-
-    responseType.message = 'Please Check Your Email'
-
-  }else {
-    responseType.statusText = 'Error'
-    responseType.message = 'Email id does not Exist'
-  }
-  res.status(StatusCodes.OK).json(responseType);
-};
-
-const changePassword = async (req, res) => {
- 
-  let data = await otp.find({email:req.body.email,code:req.body.otpCode})
-  const response = {}
-  if(data){
-    let currentTime = new Date().getTime()
-    let diff = data.expireIn - currentTime
-    if(diff < 0){
-      response.message = 'Token Expire'
-      response.statusText = 'Error'
-    }else {
-      let user = await user.findOne({email:req.body.email})
-      user.password = req.body.password
-      user.save()
-      response.message = 'Password changed successfully'
-      response.statusText = 'Success'
-    }
-  }else {
-    response.message = 'Invalid OTP'
-      response.statusText = 'Error'
-  }
-};
-
-
-export { register , login , updateUser,emailSend,changePassword}
+export { register , login , updateUser}

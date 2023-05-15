@@ -2,7 +2,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Register from './Pages/Register.js'
 import Landing from './Pages/Landing.js'
 import Error from './Pages/Error.js'
-import {Notifications,Query,Recharge,Profile,SharedLayout,Stats, ResetPassword,NewPassword} from './Pages/dashboard'
+import {Notifications,Query,Recharge,Profile,SharedLayout,Stats} from './Pages/dashboard'
 import ProtectedRoute from './Pages/ProtectedRoute.js'
 import AdminPage from './Pages/AdminPage.js'
 

@@ -4,7 +4,7 @@ import { DISPLAY_ALERT , CLEAR_ALERT,
   SETUP_USER_BEGIN,SETUP_USER_SUCCESS,
   SETUP_USER_ERROR,TOGGLE_SIDEBAR,LOGOUT_USER,UPDATE_USER_BEGIN,UPDATE_USER_SUCCESS,
   UPDATE_USER_ERROR,GET_DATA_BEGIN,GET_DATA_SUCCESS,POST_VOUCHER_BEGIN ,POST_VOUCHER_SUCCESS,
-  POST_VOUCHER_ERROR,GET_USERS_BEGIN,GET_USERS_SUCCESS,GET_USERS_ERROR,SEND_EMAIL_BEGIN,SEND_EMAIL_SUCCESS,SEND_EMAIL_ERROR
+  POST_VOUCHER_ERROR,GET_USERS_BEGIN,GET_USERS_SUCCESS,GET_USERS_ERROR
 
     } from './actions';
 import axios from "axios"
@@ -42,10 +42,7 @@ const initialState = {
   AlllastNames: [],
   Allemails: [],
   Alllocations: [],
-  //email
-  email: [],
-  code: [],
-  expireIn: [],
+
 };
 
 const AppContext = React.createContext();
@@ -268,34 +265,6 @@ const PostVoucher = async (voucherr) => {
   clearAlert()
 }
 
-//(To Front-End)
-const sendEmail = async (otpData) => {
-  let url = "/auth/email-send"
-
-  dispatch({type: SEND_EMAIL_BEGIN})
-  try {
-    const { data } = await authFetch.post(url,otpData);
-    const {email,code,expireIn} = data
-           
-    
-    dispatch({
-      type:SEND_EMAIL_SUCCESS,
-      payload: {
-        email,
-        code,
-        expireIn
-      },
-    })
-
-  } catch (error) {
-     dispatch({
-      type: SEND_EMAIL_ERROR,
-      payload: { msg: error.response.data.msg },
-    });
-  }
-  clearAlert()
-}
-
   return (
     <AppContext.Provider
       value={{
@@ -308,7 +277,6 @@ const sendEmail = async (otpData) => {
         getData,
         PostVoucher,
         getAllUsers,
-        sendEmail,
       }}
     >
       {children}
