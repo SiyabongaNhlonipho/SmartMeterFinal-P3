@@ -3,23 +3,27 @@ import { useAppContext } from '../../Context/appContext';
 import nodemailer from 'nodemailer';
 
 const ResetPassword = () => {
-   const { email, code, expireIn, sendEmail } = useAppContext();
-  const [emailEntered, setEmailEntered] = useState('');
+    const { email, code, expireIn, sendEmail } = useAppContext();
+    const [emailEntered, setEmailEntered] = useState('');
+    const [capture_emailEntered, setCapturedEmail] = useState('');
+
+    useEffect(()=>{
+            sendEmail()
+   }, [])
 
   const sendOTP = async (event) => {
+    
     event.preventDefault();
-    const capture_emailEntered = emailEntered;
+    setCapturedEmail(`${emailEntered}`)
     const otpData = { email: capture_emailEntered, code, expireIn };
 
     // Call the mailer function here
    
-const mailer = (email,otp) =>{
+  const mailer = (email) =>{
 
   // creating reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     service:"gmail",
-    port: 587,
-    secure: false, // true for 465, false for other ports
     auth: {
       user: 'siyabongawarrior@example.com', // generated ethereal user
       pass: 'Nipho3006$', // generated ethereal password
@@ -31,7 +35,7 @@ const mailer = (email,otp) =>{
     from: 'siyabongawarrior@example.com', 
     to: email, 
     subject: "Reset Password", 
-    text: "Here is your otp code "+otp+"click this link to reset your password https://smart-meter-g10-final.onrender.com/new-password", 
+    text: "click this link to reset your password https://smart-meter-g10-final.onrender.com/new-password ", 
   
   });
 
@@ -44,7 +48,7 @@ const mailer = (email,otp) =>{
   })
 
 }
-    mailer(capture_emailEntered, code);
+    mailer(capture_emailEntered);
     sendEmail(otpData)
     
   };
