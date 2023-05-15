@@ -40,7 +40,16 @@ const sendOTP = (event) => {
     e.preventDefault();
 
     emailjs.sendForm("service_jaq4qlp","template_ltc29pd", sec_form.current,"bcGEvRdKzla6Iam0E")
-    alert("Message sent Successfully!!");
+    .then(
+      (result) => {
+        alert("Message Sent Successfully");
+        console.log(result.text);
+      },
+      (error) => {
+        alert("Error!! Message Not Sent");
+        console.log(error.text);
+      }
+    );
   };
     return ( <Wrapper>
                     
