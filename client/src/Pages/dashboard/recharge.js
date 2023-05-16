@@ -31,7 +31,7 @@ const Recharge = () => {
 
           if (capture_Water === voucher[i]){
                 for (let j =0 ; j< outstanding_Balance_in_Rands.length; j++){
-                x= Value[i]
+                x= parseFloat(Value[i])
                 voucherr ={waterMeterBalance:x,electricityMeterBalance:Balance_in_Rands[j]}
                
                   }
@@ -50,7 +50,7 @@ const Recharge = () => {
           if (capture_Water === voucher[i] && capture_electricity === voucher[i] ){
 
                 for (let j =0 ; j< outstanding_Balance_in_Rands.length; j++){
-                x= Value[i]
+                x= parseFloat(Value[i])
                 voucherr ={waterMeterBalance:x,electricityMeterBalance:voucher[i]}
          
                   
