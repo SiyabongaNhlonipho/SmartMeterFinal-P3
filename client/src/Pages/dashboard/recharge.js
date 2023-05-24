@@ -43,7 +43,7 @@ const Recharge = () => {
                   voucherr ={waterMeterBalance:x,electricityMeterBalance:y}
                       
                  }
-                 
+                 alert(" Successfully  Recharged  !!");
            }
 
           if (capture_Water === voucher[i] && capture_electricity === voucher[i] ){
