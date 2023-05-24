@@ -38,7 +38,7 @@ const Recharge = () => {
                  
           }
           if (capture_electricity === voucher[i]){
-                for (let j =0 ; j< outstanding_Balance_in_Rands.length; j++){
+                for (let j =0 ; j< Balance_in_Rands.length; j++){
                   y =Value[i]
                   voucherr ={waterMeterBalance:outstanding_Balance_in_Rands[j],electricityMeterBalance:y}
                       
@@ -62,8 +62,9 @@ const Recharge = () => {
                   }
                       alert(" Successfully  Recharged !!");
            }*/
-         PostVoucher(voucherr) 
+         
       } //end 1st for loop
+      PostVoucher(voucherr) 
         
     } // stop handle
 
