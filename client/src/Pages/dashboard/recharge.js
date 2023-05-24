@@ -24,45 +24,47 @@ const Recharge = () => {
     setCapture_Water(`${waterMeterBalance}`)
     setCapture_electricity(`${electricityMeterBalance}`)
     //PostVoucher(capture)
-    let Watervoucherr,electricityVoucherr; 
+    let voucherr; 
     let x ; let y;
     for (let i =0 ; i< voucher.length; i++){
 
 
           if (capture_Water === voucher[i]){
                 for (let j =0 ; j< outstanding_Balance_in_Rands.length; j++){
-                
-                Watervoucherr ={waterMeterBalance:Value[i],electricityMeterBalance:'0'}
+                x= Value[i]
+                voucherr ={waterMeterBalance:x,electricityMeterBalance:'0'}
                
                   }
-                  
+                 
           }
           if (capture_electricity === voucher[i]){
-                for (let j =0 ; j< Balance_in_Rands.length; j++){
-                  electricityVoucherr ={waterMeterBalance:'0',electricityMeterBalance:Value[i]}
-                 
-                    
+                for (let j =0 ; j< outstanding_Balance_in_Rands.length; j++){
+                  y =Value[i]
+                  voucherr ={waterMeterBalance:outstanding_Balance_in_Rands[j],electricityMeterBalance:y}
+                      
                  }
                   alert(" Successfully  Recharged !!");
            }
-/*
-          if (capture_Water === voucher[i] && capture_electricity === voucher[i] ){
+
+         /* if (capture_Water === voucher[i] && capture_electricity === voucher[i] ){
 
                 for (let j =0 ; j< outstanding_Balance_in_Rands.length; j++){
-                 Watervoucherr ={waterMeterBalance:Value[i]}
+                x= parseFloat(Value[i])
+                voucherr ={waterMeterBalance:x,electricityMeterBalance:voucher[i]}
+         
                   
               }
 
                for (let j =0 ; j< Balance_in_Rands.length; j++){
-                electricityVoucherr ={electricityMeterBalance:Value[i]}
-                 
+                y =parseFloat(Value[i])
+                voucherr ={waterMeterBalance:x,electricityMeterBalance:y}
+               
                   }
                       alert(" Successfully  Recharged !!");
            }*/
         
       } //end 1st for loop
-       PostVoucher(Watervoucherr,electricityVoucherr)  
-      
+       PostVoucher(voucherr)   
     } // stop handle
 
  if(isLoading){

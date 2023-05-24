@@ -239,12 +239,12 @@ const   getAllUsers = async () => {
 }
 
 //(To Front-End)
-const PostVoucher = async (Watervoucherr,electricityVoucherr) => {
+const PostVoucher = async (voucherr) => {
   let url = "/my/post/value"
 
   dispatch({type: POST_VOUCHER_BEGIN})
   try {
-    const { data } = await authFetch.post(url,Watervoucherr,electricityVoucherr);
+    const { data } = await authFetch.post(url,voucherr);
     const {waterVoucher,electricityVoucher} = data
            
     
