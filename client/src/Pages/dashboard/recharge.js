@@ -46,7 +46,7 @@ const Recharge = () => {
                   alert(" Successfully  Recharged !!");
            }
 
-         /* if (capture_Water === voucher[i] && capture_electricity === voucher[i] ){
+          if (capture_Water === voucher[i] && capture_electricity === voucher[i] ){
 
                 for (let j =0 ; j< outstanding_Balance_in_Rands.length; j++){
                 x= parseFloat(Value[i])
@@ -55,13 +55,9 @@ const Recharge = () => {
                   
               }
 
-               for (let j =0 ; j< Balance_in_Rands.length; j++){
-                y =parseFloat(Value[i])
-                voucherr ={waterMeterBalance:x,electricityMeterBalance:y}
-               
-                  }
-                      alert(" Successfully  Recharged !!");
-           }*/
+                      alert(" Successfully  Recharged For Water Meter !!");
+                       alert(" You can Not Use The same Voucher Twice!!");
+           }
          
       } //end 1st for loop
       PostVoucher(voucherr) 
