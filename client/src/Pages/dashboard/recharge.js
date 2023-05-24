@@ -62,9 +62,9 @@ const Recharge = () => {
                   }
                       alert(" Successfully  Recharged !!");
            }*/
-        
+         PostVoucher(voucherr) 
       } //end 1st for loop
-       PostVoucher(voucherr)   
+        
     } // stop handle
 
  if(isLoading){
