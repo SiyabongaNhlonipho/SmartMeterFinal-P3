@@ -32,20 +32,20 @@ const Recharge = () => {
           if (capture_Water === voucher[i]){
                 for (let j =0 ; j< outstanding_Balance_in_Rands.length; j++){
                 
-                Watervoucherr ={waterMeterBalance:Value[i]}
+                Watervoucherr ={waterMeterBalance:Value[i],electricityMeterBalance:'0'}
                
                   }
-                   alert(" Successfully  Recharged !!");
+                  
           }
           if (capture_electricity === voucher[i]){
                 for (let j =0 ; j< Balance_in_Rands.length; j++){
-                  electricityVoucherr ={electricityMeterBalance:Value[i]}
+                  electricityVoucherr ={waterMeterBalance:'0',electricityMeterBalance:Value[i]}
                  
                     
                  }
                   alert(" Successfully  Recharged !!");
            }
-
+/*
           if (capture_Water === voucher[i] && capture_electricity === voucher[i] ){
 
                 for (let j =0 ; j< outstanding_Balance_in_Rands.length; j++){
@@ -58,7 +58,7 @@ const Recharge = () => {
                  
                   }
                       alert(" Successfully  Recharged !!");
-           }
+           }*/
         
       } //end 1st for loop
        PostVoucher(Watervoucherr,electricityVoucherr)  
