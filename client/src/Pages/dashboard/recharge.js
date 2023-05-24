@@ -51,7 +51,6 @@ const Recharge = () => {
                 for (let j =0 ; j< outstanding_Balance_in_Rands.length; j++){
                 x= parseFloat(Value[i])
                 voucherr ={waterMeterBalance:x,electricityMeterBalance:outstanding_Balance_in_Rands[0]}
-         
                   
               }
 
