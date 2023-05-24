@@ -24,23 +24,22 @@ const Recharge = () => {
     setCapture_Water(`${waterMeterBalance}`)
     setCapture_electricity(`${electricityMeterBalance}`)
     //PostVoucher(capture)
-    let voucherr; 
+    let Watervoucherr,electricityVoucherr; 
     let x ; let y;
     for (let i =0 ; i< voucher.length; i++){
 
 
           if (capture_Water === voucher[i]){
                 for (let j =0 ; j< outstanding_Balance_in_Rands.length; j++){
-                x= parseFloat(Value[i])
-                voucherr ={waterMeterBalance:x,electricityMeterBalance:Balance_in_Rands[j]}
+                
+                Watervoucherr ={waterMeterBalance:Value[i]}
                
                   }
                    alert(" Successfully  Recharged !!");
           }
           if (capture_electricity === voucher[i]){
                 for (let j =0 ; j< Balance_in_Rands.length; j++){
-                  y =parseFloat(Value[i])
-                  voucherr ={waterMeterBalance:outstanding_Balance_in_Rands[j],electricityMeterBalance:y}
+                  electricityVoucherr ={electricityMeterBalance:Value[i]}
                  
                     
                  }
@@ -50,22 +49,20 @@ const Recharge = () => {
           if (capture_Water === voucher[i] && capture_electricity === voucher[i] ){
 
                 for (let j =0 ; j< outstanding_Balance_in_Rands.length; j++){
-                x= parseFloat(Value[i])
-                voucherr ={waterMeterBalance:x,electricityMeterBalance:voucher[i]}
-         
+                 Watervoucherr ={waterMeterBalance:Value[i]}
                   
               }
 
                for (let j =0 ; j< Balance_in_Rands.length; j++){
-                y =parseFloat(Value[i])
-                voucherr ={waterMeterBalance:x,electricityMeterBalance:y}
-               
+                electricityVoucherr ={electricityMeterBalance:Value[i]}
+                 
                   }
                       alert(" Successfully  Recharged !!");
            }
         
       } //end 1st for loop
-       PostVoucher(voucherr)   
+       PostVoucher(Watervoucherr,electricityVoucherr)  
+      
     } // stop handle
 
  if(isLoading){

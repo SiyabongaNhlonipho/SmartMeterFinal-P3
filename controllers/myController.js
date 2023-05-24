@@ -225,7 +225,7 @@ const result = await (await (await modell.find().sort({_id :-1}).limit(7).select
         })
 
         let Time = result.map(function(elem){
-            let h =AddZero(elem.createdAt.getHours())
+            let h =AddZero(elem.createdAt.getHours()+2)
             let m =AddZero(elem.createdAt.getMinutes())
             let s =AddZero(elem.createdAt.getSeconds())
             
@@ -252,7 +252,7 @@ const result = await (await (await modell.find().sort({_id :-1}).limit(7).select
         })
 
         let sec_Time = sec_result.map(function(sec_elem){
-            let h =AddZero(sec_elem.createdAt.getHours())
+            let h =AddZero(sec_elem.createdAt.getHours()+2)
             let m =AddZero(sec_elem.createdAt.getMinutes())
             let s =AddZero(sec_elem.createdAt.getSeconds())
             
