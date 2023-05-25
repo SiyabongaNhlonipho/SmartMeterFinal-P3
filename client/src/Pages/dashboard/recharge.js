@@ -32,7 +32,7 @@ const Recharge = () => {
           if (capture_Water === voucher[i]){
                 for (let j =0 ; j< outstanding_Balance_in_Rands.length; j++){
                 x= Value[i]
-                voucherr ={waterMeterBalance:x,electricityMeterBalance:'0'}
+                //voucherr ={waterMeterBalance:x,electricityMeterBalance:'0'}
                
                   }
                  
@@ -62,6 +62,7 @@ const Recharge = () => {
       PostVoucher(voucherr) 
         
     } // stop handle
+   
 
  if(isLoading){
    
@@ -116,3 +117,4 @@ const Recharge = () => {
 }
 
 export default Recharge
+
