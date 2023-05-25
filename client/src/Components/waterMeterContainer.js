@@ -40,7 +40,7 @@ const WaterMeterContainer = () => {
     doc.text(60,80,'Last Updated On :')
     doc.text(60,100,'Last Updated At :')
     doc.text(60,120,'Time:')
-    doc.text(60,140,'Electricity Consumption in kwh:')
+    doc.text(60,140,'Water Consumption in Litres:')
     doc.text(200,160,'Remaining Balance:')
     doc.setFont('Helvertica', 'Normal')
     doc.text(150,80,`${sec_createdAt[0]}`)
