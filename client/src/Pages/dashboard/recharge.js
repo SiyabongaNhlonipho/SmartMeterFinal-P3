@@ -32,7 +32,7 @@ const Recharge = () => {
           if (capture_Water === voucher[i]){
                 for (let j =0 ; j< outstanding_Balance_in_Rands.length; j++){
                 x= Value[i]
-                voucherr ={waterMeterBalance:x}
+                voucherr ={waterMeterBalance:x,electricityMeterBalance:'0'}
                
                   }
                  
@@ -40,7 +40,7 @@ const Recharge = () => {
           if (capture_electricity === voucher[i]){
                 for (let j =0 ; j< Balance_in_Rands.length; j++){
                   y =Value[i]
-                  voucherr ={electricityMeterBalance:y}
+                  voucherr ={waterMeterBalance:x,electricityMeterBalance:y}
                       
                  }
                  alert(" Successfully  Recharged  !!");
